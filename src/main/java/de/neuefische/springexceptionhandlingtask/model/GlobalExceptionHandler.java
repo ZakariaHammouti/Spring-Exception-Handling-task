@@ -11,20 +11,21 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    //getAllCars
+    //getAll
     @ExceptionHandler(ExceptionNotFound.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public ErrorMessage handleNotAcceptableException(ExceptionNotFound e) {
         return new ErrorMessage(e.getMessage());
     }
 
-    //getCarBrand
+    //getOne
     @ExceptionHandler(ExceptionBadRequest.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorMessage handleBadRequestException(ExceptionBadRequest e) {
         return new ErrorMessage(e.getMessage());
     }
 
+    //Internal Server error
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     public ErrorMessage handleRunTimeException(Exception e) {

@@ -14,8 +14,7 @@ public class CarController {
     @GetMapping("{brand}")
     String getCarBrand(@PathVariable String brand) {
         if (!brand.equals("porsche")) {
-            throw new ExceptionBadRequest("Only porsche" +
-                    " brands are supported: ");
+            throw new ExceptionBadRequest("Only 'porsche' allowed");
         }
         return brand;
     }
